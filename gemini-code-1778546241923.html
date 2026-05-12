@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG Elétrica e Infraestrutura | Mobilidade Elétrica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg: #02050a;
+            --electric-blue: #00d2ff;
+            --deep-blue: #0072ff;
+            --neon-glow: rgba(0, 210, 255, 0.5);
+            --text-white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Fundo com efeito de luzes e gradiente do primeiro post */
+            background-image: 
+                radial-gradient(circle at 20% 35%, rgba(0, 210, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(0, 78, 146, 0.15) 0%, transparent 40%),
+                linear-gradient(135deg, #000000 0%, #050a14 100%);
+            background-attachment: fixed;
+        }
+
+        header {
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--electric-blue);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 90px; /* Tamanho aumentado conforme solicitado */
+            width: auto;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
+        }
+
+        .logo-img:hover {
+            transform: scale(1.05);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover { color: var(--electric-blue); }
+
+             .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: linear-gradient(rgba(5, 10, 20, 0.7), rgba(5, 10, 20, 0.7)), url('https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=2072') center/cover;
+        }
+
+        .hero h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+        }
+
+        .hero h1 span { color: var(--electric-blue); }
+
+        .btn-main {
+            display: inline-block;
+            padding: 18px 40px;
+            background: linear-gradient(45deg, var(--deep-blue), var(--electric-blue));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px var(--neon-glow);
+            transition: 0.3s;
+            margin-top: 20px;
+        }
+
+        .post-container {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .post-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .post-image {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .post-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--electric-blue);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .general-section {
+            background: rgba(255,255,255,0.03);
+            padding: 80px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(0, 210, 255, 0.1);
+        }
+
+        .service-card {
+            background: rgba(10, 10, 10, 0.8);
+            padding: 40px 20px;
+            border-radius: 15px;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: var(--electric-blue);
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 45px;
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+        }
+
+        footer {
+            padding: 80px 5%;
+            background: #000;
+            text-align: center;
+            border-top: 2px solid var(--electric-blue);
+        }
+
+        .contact-link {
+            color: var(--electric-blue);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0 15px;
+        }
+
+        @media (max-width: 900px) {
+            .post-row { grid-template-columns: 1fr; text-align: center; }
+            .hero h1 { font-size: 2.2rem; }
+            .logo-img { height: 100px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <img src="logo.jpg" alt="DG Elétrica" class="logo-img">
+        <nav>
+            <a href="#solucoes">Soluções</a>
+            <a href="#eletrica">Elétrica Geral</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>O FUTURO É <span>AGORA</span></h1>
+        <p style="font-size: 1.2rem; color: #aaa;">Referência em Infraestrutura Elétrica e Mobilidade Sustentável.</p>
+        <a href="https://wa.me/5511958981063" class="btn-main">Falar com um Especialista</a>
+    </section>
+
+    <div class="post-container" id="solucoes">
+        <div class="post-row">
+            <div class="post-content">
+                <h2>CARREGAMENTO MONETIZADO</h2>
+                <p>Inovação para condomínios e empresas. Diferente dos concorrentes, esse sistema não utiliza apps para carregamento.</p>
+                <ul style="list-style: none; margin-top: 20px; text-align: left;">
+                    <li><i class="fas fa-bolt" style="color: var(--electric-blue);"></i> Pagamento via PIX e Cartões.</li>
+                    <li><i class="fas fa-bolt" style="color: var(--electric-blue);"></i> Sistema simples, rápido e fácil.</li>
+                    <li><i class="fas fa-bolt" style="color: var(--electric-blue);"></i> Acessível para todos os veículos elétricos.</li>
+                </ul>
+            </div>
+            <div class="post-media">
+                <img src="post1.png" alt="Sistema ChargeBox" class="post-image">
+            </div>
+        </div>
+
+        <div class="post-row">
+            <div class="post-media" style="order: 2;">
+                <img src="post2.png" alt="Instalações de Wallbox" class="post-image">
+            </div>
+            <div class="post-content" style="order: 1;">
+                <h2>MOBILIDADE ELÉTRICA</h2>
+                <p>Instalação de Wallbox CA e DC com foco em segurança total e conformidade com as novas normas.</p>
+                <ul style="list-style: none; margin-top: 20px; text-align: left;">
+                    <li><i class="fas fa-check" style="color: var(--electric-blue);"></i> Infraestrutura coletiva em condomínios.</li>
+                    <li><i class="fas fa-check" style="color: var(--electric-blue);"></i> Sistema de Controle de Carga (Load Management).</li>
+                    <li><i class="fas fa-check" style="color: var(--electric-blue);"></i> Implantação de sistema de emergência S.A.V.E.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <section class="general-section" id="eletrica">
+        <h2 style="font-family: 'Orbitron'; font-size: 2.5rem;">ELÉTRICA <span>EM GERAL</span></h2>
+        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
+            <div class="service-card">
+                <i class="fas fa-industry"></i>
+                <h3>Industrial</h3>
+                <p>Quadros de comando e infraestrutura de alta performance.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-store"></i>
+                <h3>Comercial</h3>
+                <p>Instalações modernas para o seu negócio não parar.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-home"></i>
+                <h3>Residencial</h3>
+                <p>Segurança e automação para o conforto da sua família.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools"></i>
+                <h3>Manutenção</h3>
+                <p>Preventiva e corretiva com laudos técnicos.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contato">
+        <h2 style="font-family: 'Orbitron'; margin-bottom: 30px;">SOLICITE SEU ORÇAMENTO!</h2>
+        <div class="contact-box" style="margin-bottom: 30px;">
+            <a href="tel:11958981063" class="contact-link"><i class="fab fa-whatsapp"></i> 11 95898-1063</a>
+            <a href="tel:11980353978" class="contact-link"><i class="fab fa-whatsapp"></i> 11 98035-3978</a>
+            <a href="https://instagram.com/dg_eletricaa" class="contact-link"><i class="fab fa-instagram"></i> @DG_Eletricaa</a>
+        </div>
+        <p style="color: #444;">&copy; 2024 DG Elétrica e Infraestrutura. Todos os direitos reservados.</p>
+    </footer>
+
+</body>
+</html>
