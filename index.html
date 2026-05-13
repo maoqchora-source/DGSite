@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18161469490"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18161469490"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'AW-18161469490');
+</script>
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18161469490/CONVERSION_LABEL', // <-- IMPORTANTE: Veja a nota abaixo
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -224,12 +238,16 @@
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>O FUTURO É <span>AGORA</span></h1>
-        <p style="font-size: 1.2rem; color: #aaa;">Referência em Infraestrutura Elétrica e Mobilidade Sustentável.</p>
-        <a href="https://wa.me/5511958981063" class="btn-main">Falar com um Especialista</a>
-    </section>
-
+   <section class="hero">
+    <h1>O FUTURO É <span>AGORA</span></h1>
+    <p style="font-size: 1.2rem; color: #aaa;">Referência em Infraestrutura Elétrica e Mobilidade Sustentável.</p>
+    
+    <a href="https://wa.me/5511958981063" 
+       onclick="return gtag_report_conversion('https://wa.me/5511958981063');" 
+       class="btn-main">
+       Falar com um Especialista
+    </a>
+</section>
     <div class="post-container" id="solucoes">
         <div class="post-row">
             <div class="post-content">
