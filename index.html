@@ -15,7 +15,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+  
         body {
             background-color: var(--dark-bg);
             color: var(--text-white);
@@ -141,6 +141,7 @@
             border-radius: 15px;
             border: 1px solid #222;
             transition: 0.3s;
+            cursor: pointer; /* Adicionado para indicar clique */
         }
 
         .service-card:hover {
@@ -153,7 +154,34 @@
             color: var(--electric-blue);
             margin-bottom: 20px;
         }
-
+        
+              /* CSS DAS NOVAS TELAS (MODAIS) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.95);
+            overflow-y: auto;
+            padding-top: 50px;
+        }
+        .modal-content {
+            background: #0a0a0a;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid var(--electric-blue);
+            width: 90%; max-width: 800px;
+            border-radius: 15px;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            right: 20px; top: 10px;
+            color: #fff; font-size: 35px;
+            cursor: pointer;
+        }
+        .modal-img { width: 100%; border-radius: 10px; margin-top: 20px; border: 1px solid #333; }
         footer {
             padding: 80px 5%;
             background: #000;
@@ -226,32 +254,67 @@
         </div>
     </div>
 
-    <section class="general-section" id="eletrica">
-        <h2 style="font-family: 'Orbitron'; font-size: 2.5rem;">ELÉTRICA <span>EM GERAL</span></h2>
-        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 50px;">
-            <div class="service-card">
+  <section class="general-section" id="eletrica" style="padding: 80px 5%; text-align: center;">
+        <h2 style="font-family: 'Orbitron'; font-size: 2.5rem; margin-bottom: 50px;">NOSSOS <span>SERVIÇOS</span></h2>
+        <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+            
+            <div class="service-card" onclick="abrir('m-industrial')">
                 <i class="fas fa-industry"></i>
                 <h3>Industrial</h3>
-                <p>Quadros de comando e infraestrutura de alta performance.</p>
+                <p>Clique para ver detalhes.</p>
             </div>
-            <div class="service-card">
+
+            <div class="service-card" onclick="abrir('m-comercial')">
                 <i class="fas fa-store"></i>
                 <h3>Comercial</h3>
-                <p>Instalações modernas para o seu negócio não parar.</p>
+                <p>Clique para ver detalhes.</p>
             </div>
-            <div class="service-card">
+
+            <div class="service-card" onclick="abrir('m-residencial')">
                 <i class="fas fa-home"></i>
                 <h3>Residencial</h3>
-                <p>Segurança e automação para o conforto da sua família.</p>
+                <p>Clique para ver detalhes.</p>
             </div>
-            <div class="service-card">
+
+            <div class="service-card" onclick="abrir('m-manutencao')">
                 <i class="fas fa-tools"></i>
                 <h3>Manutenção</h3>
-                <p>Preventiva e corretiva com laudos técnicos.</p>
+                <p>Clique para ver detalhes.</p>
             </div>
         </div>
     </section>
+        <div id="m-industrial" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fechar('m-industrial')">&times;</span>
+            <h2 style="font-family: 'Orbitron'; color: var(--electric-blue);">INDUSTRIAL</h2>
+            <p>Infraestrutura robusta, painéis elétricos e automação para sua indústria ter máxima eficiência.</p>
+            <img src="post3.png" class="modal-img">
+        </div>
+    </div>
 
+    <div id="m-comercial" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fechar('m-comercial')">&times;</span>
+            <h2 style="font-family: 'Orbitron'; color: var(--electric-blue);">COMERCIAL</h2>
+            <p>Projetos de iluminação, redes e segurança elétrica para o seu negócio não parar.</p>
+            <img src="post4.png" class="modal-img">
+        </div>
+    </div>
+  <div id="m-residencial" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fechar('m-residencial')">&times;</span>
+            <h2 style="font-family: 'Orbitron'; color: var(--electric-blue);">RESIDENCIAL</h2>
+            <p>Segurança, automação e instalações elétricas completas para o conforto da sua família, seguindo todas as normas vigentes.</p>
+            <img src="post5.png" class="modal-img"> </div>
+    </div>
+
+    <div id="m-manutencao" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fechar('m-manutencao')">&times;</span>
+            <h2 style="font-family: 'Orbitron'; color: var(--electric-blue);">MANUTENÇÃO</h2>
+            <p>Manutenção preventiva e corretiva em sistemas elétricos, com emissão de laudos técnicos e foco em segurança operacional.</p>
+            <img src="post6.png" class="modal-img"> </div>
+    </div>
     <footer id="contato">
         <h2 style="font-family: 'Orbitron'; margin-bottom: 30px;">SOLICITE SEU ORÇAMENTO!</h2>
         <div class="contact-box" style="margin-bottom: 30px;">
@@ -261,6 +324,22 @@
         </div>
         <p style="color: #444;">&copy; 2024 DG Elétrica e Infraestrutura. Todos os direitos reservados.</p>
     </footer>
-
+<script>
+        function abrir(id) { 
+            document.getElementById(id).style.display = "block"; 
+            document.body.style.overflow = "hidden"; // Trava o scroll da página ao abrir
+        }
+        function fechar(id) { 
+            document.getElementById(id).style.display = "none"; 
+            document.body.style.overflow = "auto"; // Destrava o scroll ao fechar
+        }
+        // Fecha a janela se o utilizador clicar fora da caixa preta
+        window.onclick = function(e) { 
+            if(e.target.className === 'modal') { 
+                e.target.style.display = "none"; 
+                document.body.style.overflow = "auto";
+            } 
+        }
+    </script>
 </body>
 </html>
